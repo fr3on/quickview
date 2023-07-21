@@ -1,0 +1,13 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$productid = $this->getRequest()->getParam('id');
+$product = $objectManager->create('Magento\Catalog\Model\Product')->load($productid);
+?>
+
+<div class="quickview-button-container">
+        <button class="action primary quickview-button"
+                data-mage-init='{"Fr3on_QuickView/js/quickview": {"productId": "<?= $product->getId() ?>"}}'
+        >
+            <span>Quick View</span>
+        </button>
+</div>

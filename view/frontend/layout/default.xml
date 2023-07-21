@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <!-- QuickView modal container -->
+    <body>
+        <referenceContainer name="content">
+            <block class="Fr3on\QuickView\Block\QuickView" name="quickview.modal"
+                   template="Fr3on_QuickView::quickview/product_modal.phtml"/>
+            <block class="Fr3on\QuickView\Block\QuickView" name="quickview.modal.minicart"
+                   template="Fr3on_QuickView::quickview/minicart_modal.phtml"/>
+        </referenceContainer>
+    </body>
+
+    <!-- Show QuickView button on the product page -->
+    <body>
+        <referenceContainer name="product.info.main">
+            <block class="Fr3on\QuickView\Block\QuickView\Product" name="quickview.product.button"
+                   template="Fr3on_QuickView::quickview/product_button.phtml" after="page.main.title"/>
+        </referenceContainer>
+    </body>
+
+    <!-- Show QuickView button in mini cart -->
+    <body>
+        <referenceBlock name="minicart.addons">
+            <block name="quickview.minicart.button" template="Fr3on_QuickView::quickview/minicart_button.phtml"
+                   after="minicart.addons.quantity"/>
+        </referenceBlock>
+    </body>
+
+    <!-- Show QuickView mini cart button in cart page -->
+    <body>
+        <referenceBlock name="cart.summary">
+            <block name="quickview.cart.button" template="Fr3on_QuickView::quickview/minicart_button.phtml" after="-"/>
+        </referenceBlock>
+    </body>
+</page>
